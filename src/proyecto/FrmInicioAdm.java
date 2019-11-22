@@ -49,23 +49,20 @@ public class FrmInicioAdm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         btnArticulos = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         btnVender = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel1.setText("Registrar un nuevo usuario");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,8 +70,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
-
-        jLabel3.setText("Consultar libros disponibles");
+        getContentPane().add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
 
         btnArticulos.setText("Articulos");
         btnArticulos.addActionListener(new java.awt.event.ActionListener() {
@@ -82,8 +78,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
                 btnArticulosActionPerformed(evt);
             }
         });
-
-        jLabel4.setText("Vender libro");
+        getContentPane().add(btnArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         btnVender.setText("Vender");
         btnVender.addActionListener(new java.awt.event.ActionListener() {
@@ -91,8 +86,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
                 btnVenderActionPerformed(evt);
             }
         });
-
-        jLabel5.setText("Salir");
+        getContentPane().add(btnVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 70, -1));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -100,8 +94,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-
-        jLabel7.setText("Agregar libro");
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 60, -1));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,81 +102,63 @@ public class FrmInicioAdm extends javax.swing.JFrame {
                 btnAgregarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(btnRegistrar)
-                    .addComponent(jLabel3)
-                    .addComponent(btnArticulos)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(btnVender)
-                    .addComponent(btnSalir)
-                    .addComponent(jLabel7)
-                    .addComponent(btnAgregar))
-                .addContainerGap(49, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRegistrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnArticulos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVender)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setText("Salir");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 40, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jTextField2.setEditable(false);
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setText("Registrar un nuevo usuario");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 170, -1));
+
+        jTextField3.setEditable(false);
+        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField3.setText("Consultar libros disponibles");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 170, -1));
+
+        jTextField4.setEditable(false);
+        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField4.setText("Vender libro");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 90, -1));
+
+        jTextField5.setEditable(false);
+        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField5.setText("Agregar libro");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 90, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ventas_fuera.jpg"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        new FrmLogin().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        new FrmRegistro().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
@@ -196,7 +171,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
         libro.setAutor(autor);
         String precio = JOptionPane.showInputDialog("Ingrese el precio del libro:");
         libro.setPrecio(precio);
-        
+
         FileWriter flwriter = null;
         try{
             flwriter = new FileWriter("D:/libros.txt", true);
@@ -215,50 +190,13 @@ public class FrmInicioAdm extends javax.swing.JFrame {
                 }
             }
         }
-        
+
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    private void btnArticulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArticulosActionPerformed
-        // TODO add your handling code here:
-        FileReader fr = null;
-        try {
-            // TODO add your handling code here:
-            int nLineas = 0;
-            int i = 0;
-            String [] libros = null;
-            String linea;
-            sc = new Scanner(new File ("D:/libros.txt"));
-            File f = new File("D:/libros.txt");
-            fr = new FileReader(f);
-            BufferedReader br = new BufferedReader(fr);
-            
-            try {
-                while((linea =  br.readLine()) != null){
-                    nLineas++;
-                }
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            
-            libros = new String[nLineas];//Tamaño del arreglo
-            
-            while(sc.hasNextLine()){
-                libros[i++] = sc.nextLine(); //almacenamos cada linea en una posicion del arreglo
-            }
-        Herramientas m = new Herramientas();
-        m.mostrarLibros(libros);
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(null, "No se encontro el archivo");
-            ex.printStackTrace();
-        } finally {
-            try {
-                sc.close();
-                fr.close();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_btnArticulosActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        new FrmLogin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         // TODO add your handling code here:
@@ -268,9 +206,9 @@ public class FrmInicioAdm extends javax.swing.JFrame {
         try{
             BufferedReader leer = new BufferedReader(new FileReader(arcViejo));
             BufferedWriter escribir = new BufferedWriter(new FileWriter(nvoArc));
-            
+
             String linea;
-            
+
             while((linea = leer.readLine()) != null){
                 String trmLinea = linea.trim();
                 if(trmLinea.equals(nombre)){
@@ -286,8 +224,75 @@ public class FrmInicioAdm extends javax.swing.JFrame {
             nvoArc.renameTo(basura);
         } catch (IOException ex) {
             ex.printStackTrace();
-        } 
+        }
     }//GEN-LAST:event_btnVenderActionPerformed
+
+    private void btnArticulosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArticulosActionPerformed
+        // TODO add your handling code here:
+        FileReader fr = null;
+        try {
+            // TODO add your handling code here:
+            int nLineas = 0;
+            int i = 0;
+            String [] libros = null;
+            String linea;
+            sc = new Scanner(new File ("D:/libros.txt"));
+            File f = new File("D:/libros.txt");
+            fr = new FileReader(f);
+            BufferedReader br = new BufferedReader(fr);
+
+            try {
+                while((linea =  br.readLine()) != null){
+                    nLineas++;
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
+            libros = new String[nLineas];//Tamaño del arreglo
+
+            while(sc.hasNextLine()){
+                libros[i++] = sc.nextLine(); //almacenamos cada linea en una posicion del arreglo
+            }
+            Herramientas m = new Herramientas();
+            m.mostrarLibros(libros);
+        } catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(null, "No se encontro el archivo");
+            ex.printStackTrace();
+        } finally {
+            try {
+                sc.close();
+                fr.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_btnArticulosActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        new FrmRegistro().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -331,11 +336,11 @@ public class FrmInicioAdm extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVender;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

@@ -43,12 +43,13 @@ public class FrmInicioVen extends javax.swing.JFrame {
 
         popupMenu1 = new java.awt.PopupMenu();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btnConsultar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         btnVender = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -57,8 +58,7 @@ public class FrmInicioVen extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setFocusTraversalPolicyProvider(true);
         jPanel1.setInheritsPopupMenu(true);
-
-        jLabel1.setText("Consultar libro");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnConsultar.setText("Consultar");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -66,8 +66,7 @@ public class FrmInicioVen extends javax.swing.JFrame {
                 btnConsultarActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("Vender libro");
+        jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 37, -1, -1));
 
         btnVender.setText("Vender");
         btnVender.addActionListener(new java.awt.event.ActionListener() {
@@ -75,8 +74,7 @@ public class FrmInicioVen extends javax.swing.JFrame {
                 btnVenderActionPerformed(evt);
             }
         });
-
-        jLabel3.setText("Salir");
+        jPanel1.add(btnVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 96, -1, -1));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -84,55 +82,35 @@ public class FrmInicioVen extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(btnConsultar)
-                    .addComponent(jLabel2)
-                    .addComponent(btnVender)
-                    .addComponent(jLabel3)
-                    .addComponent(btnSalir))
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnConsultar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnVender)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSalir)
-                .addContainerGap(13, Short.MAX_VALUE))
-        );
+        jTextField2.setEditable(false);
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setText("Consultar libro");
+        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 100, -1));
+
+        jTextField1.setEditable(false);
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setText("Vender libro");
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, -1));
+
+        jTextField3.setEditable(false);
+        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField3.setText("Salir");
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 40, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ventas_fuera.jpg"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 250, 270));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -143,9 +121,38 @@ public class FrmInicioVen extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
+    private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
+        // TODO add your handling code here:
+        String nombre = JOptionPane.showInputDialog("Nombre del libro");
+        File arcViejo = new File("D:/libros.txt");
+        File nvoArc = new File("D:/tmp.txt");
+        try{
+            BufferedReader leer = new BufferedReader(new FileReader(arcViejo));
+            BufferedWriter escribir = new BufferedWriter(new FileWriter(nvoArc));
+
+            String linea;
+
+            while((linea = leer.readLine()) != null){
+                String trmLinea = linea.trim();
+                if(trmLinea.equals(nombre)){
+                    continue;
+                }else{
+                }
+                escribir.write(linea + System.getProperty("line.separator"));
+            }
+            escribir.close();
+            leer.close();
+            arcViejo.delete();
+            File basura = new File("D:/libros.txt");
+            nvoArc.renameTo(basura);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_btnVenderActionPerformed
+
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
         // TODO add your handling code here:
-         FileReader fr = null;
+        FileReader fr = null;
         try {
             // TODO add your handling code here:
             int nLineas = 0;
@@ -156,7 +163,7 @@ public class FrmInicioVen extends javax.swing.JFrame {
             File f = new File("D:/libros.txt");
             fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
-            
+
             try {
                 while((linea =  br.readLine()) != null){
                     nLineas++;
@@ -164,9 +171,9 @@ public class FrmInicioVen extends javax.swing.JFrame {
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
-            
+
             libros = new String[nLineas];//Tamaño del arreglo
-            
+
             while(sc.hasNextLine()){
                 libros[i++] = sc.nextLine(); //almacenamos cada linea en una posicion del arreglo
             }
@@ -186,35 +193,6 @@ public class FrmInicioVen extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
-
-    private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
-        // TODO add your handling code here:
-        String nombre = JOptionPane.showInputDialog("Nombre del libro");
-        File arcViejo = new File("D:/libros.txt");
-        File nvoArc = new File("D:/tmp.txt");
-        try{
-            BufferedReader leer = new BufferedReader(new FileReader(arcViejo));
-            BufferedWriter escribir = new BufferedWriter(new FileWriter(nvoArc));
-            
-            String linea;
-            
-            while((linea = leer.readLine()) != null){
-                String trmLinea = linea.trim();
-                if(trmLinea.equals(nombre)){
-                    continue;
-                }else{
-                }
-                escribir.write(linea + System.getProperty("line.separator"));
-            }
-            escribir.close();
-            leer.close();
-            arcViejo.delete();
-            File basura = new File("D:/libros.txt");
-            nvoArc.renameTo(basura);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        } 
-    }//GEN-LAST:event_btnVenderActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,10 +233,11 @@ public class FrmInicioVen extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVender;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private java.awt.PopupMenu popupMenu1;
     // End of variables declaration//GEN-END:variables
 }
