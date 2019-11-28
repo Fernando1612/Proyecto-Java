@@ -1,5 +1,6 @@
 package proyecto;
 
+import chat.FrmVendedor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -49,6 +50,8 @@ public class FrmInicioVen extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        btnChat = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         popupMenu1.setLabel("popupMenu1");
@@ -82,7 +85,7 @@ public class FrmInicioVen extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         jTextField2.setEditable(false);
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
@@ -97,7 +100,19 @@ public class FrmInicioVen extends javax.swing.JFrame {
         jTextField3.setEditable(false);
         jTextField3.setBackground(new java.awt.Color(255, 255, 255));
         jTextField3.setText("Salir");
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 40, -1));
+        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 40, -1));
+
+        jTextField4.setEditable(false);
+        jTextField4.setText("Chat");
+        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 50, -1));
+
+        btnChat.setText("Chat");
+        btnChat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChatActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ventas_fuera.jpg"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 250, 270));
@@ -127,24 +142,24 @@ public class FrmInicioVen extends javax.swing.JFrame {
         File arcViejo = new File("D:/libros.txt");
         File nvoArc = new File("D:/tmp.txt");
         try{
-            BufferedReader leer = new BufferedReader(new FileReader(arcViejo));
-            BufferedWriter escribir = new BufferedWriter(new FileWriter(nvoArc));
+            
+            BufferedReader br = new BufferedReader(new FileReader(arcViejo));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(nvoArc));
 
             String linea;
 
-            while((linea = leer.readLine()) != null){
+            while((linea = br.readLine()) != null){
                 String trmLinea = linea.trim();
                 if(trmLinea.equals(nombre)){
                     continue;
                 }else{
                 }
-                escribir.write(linea + System.getProperty("line.separator"));
+                bw.write(linea + System.getProperty("line.separator"));
             }
-            escribir.close();
-            leer.close();
+            bw.close();
+            br.close();
             arcViejo.delete();
-            File basura = new File("D:/libros.txt");
-            nvoArc.renameTo(basura);
+            nvoArc.renameTo(arcViejo);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -183,7 +198,7 @@ public class FrmInicioVen extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
-            Logger.getLogger(FrmInicioVen.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         } finally {
             try {
                 sc.close();
@@ -193,6 +208,12 @@ public class FrmInicioVen extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChatActionPerformed
+        // TODO add your handling code here:
+        //Se abre el chat
+        new FrmVendedor().setVisible(true);
+    }//GEN-LAST:event_btnChatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,6 +251,7 @@ public class FrmInicioVen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnChat;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVender;
@@ -238,6 +260,7 @@ public class FrmInicioVen extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private java.awt.PopupMenu popupMenu1;
     // End of variables declaration//GEN-END:variables
 }

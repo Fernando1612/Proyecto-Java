@@ -160,6 +160,7 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
+        //Regresa al menu principal
         new FrmInicioAdm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
@@ -170,36 +171,41 @@ public class FrmRegistro extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        //se guardan los datos puestos en el formulario
         usu = txtUsuario.getText();
         con = txtCon.getText();
         rango = txtRango.getText();
         
+        //Se crea un objeto de tipo cuenta y se guardan en sus setters
         Cuenta nvaCta = new Cuenta();
         nvaCta.setUsuario(usu);
         nvaCta.setContra(con);
         nvaCta.setRango(rango);
         
-        FileWriter flwriter = null;
+        FileWriter fw = null;
         try{
-            flwriter = new FileWriter("D:/usuarios.txt", true);
-            BufferedWriter bfwrite = new BufferedWriter(flwriter);
-            bfwrite.write( nvaCta.getUsuario() + "\n" + nvaCta.getContra() + "\n" + nvaCta.getRango() + "\n" );
-            bfwrite.close();
+            //se crea un objeto para leer archivo, si que se pierda lo ya escrito
+            fw = new FileWriter("D:/usuarios.txt", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            //Esribimos cada dato puesto en el archivo con un salto de linea por cada dato
+            bw.write( nvaCta.getUsuario() + "\n" + nvaCta.getContra() + "\n" + nvaCta.getRango() + "\n" );
+            bw.close();
             JOptionPane.showMessageDialog(null, "Usuario Registrado correctamente.");
         }catch(IOException e){
             e.printStackTrace();
         }finally{
-            if(flwriter != null){
+            if(fw != null){
                 try{
-                    flwriter.close();     
+                    fw.close();     
                 }catch(IOException e){
                     e.printStackTrace();
                 }
             }
         }
-        txtUsuario.setText("");
-        txtCon.setText("");
-        txtRango.setText("");
+        //Al terminar el registro, ponemos en blanco las cajas para agregar a otro usuario
+        txtUsuario.setText(" ");
+        txtCon.setText(" ");
+        txtRango.setText(" ");
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

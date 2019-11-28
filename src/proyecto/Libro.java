@@ -10,11 +10,13 @@ package proyecto;
  * @author chapa
  */
 public class Libro {
+    //Creacion de atributos privados
     private String ISB;
     private String titulo;
     private String autor;
     private String precio;
 
+    // Setters y getters de los atributos, para acceder a ellos y modificarlos
     public String getISB() {
         return ISB;
     }

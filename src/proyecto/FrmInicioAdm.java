@@ -1,7 +1,5 @@
 package proyecto;
-import proyecto.FrmRegistro;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import chat.FrmVendedor;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,9 +8,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 
@@ -59,6 +54,8 @@ public class FrmInicioAdm extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        btnChat = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,7 +83,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
                 btnVenderActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 70, -1));
+        getContentPane().add(btnVender, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 80, -1));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -94,7 +91,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 60, -1));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 60, -1));
 
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +109,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 40, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 40, -1));
 
         jTextField2.setEditable(false);
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
@@ -154,6 +151,18 @@ public class FrmInicioAdm extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 90, -1));
 
+        jTextField6.setEditable(false);
+        jTextField6.setText("Chat");
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 40, -1));
+
+        btnChat.setText("Chat");
+        btnChat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChatActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 60, -1));
+
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/ventas_fuera.jpg"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, -1));
 
@@ -162,6 +171,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
+        //Se crea un objeto de la clase libro y nos pide ingresar sus datos para ser guardados en sus setters
         Libro libro = new Libro();
         String ISBN = JOptionPane.showInputDialog("Ingrese el ISBN del libro:");
         libro.setISB(ISBN);
@@ -171,20 +181,25 @@ public class FrmInicioAdm extends javax.swing.JFrame {
         libro.setAutor(autor);
         String precio = JOptionPane.showInputDialog("Ingrese el precio del libro:");
         libro.setPrecio(precio);
-
-        FileWriter flwriter = null;
+        
+        
+        FileWriter fw = null;
         try{
-            flwriter = new FileWriter("D:/libros.txt", true);
-            BufferedWriter bfwrite = new BufferedWriter(flwriter);
-            bfwrite.write( libro.getTitulo() + "\n" );
-            bfwrite.close();
+            //Se crea un objeto de tipo file writer para bw en un archivo
+            //Si el archivo contiene cosas, escribimos en el sin borrarles
+            fw = new FileWriter("D:/libros.txt", true);
+            //creamos un objeto buffered writer para una escritura mas eficiente
+            BufferedWriter bw = new BufferedWriter(fw);
+            //Escribimos en el archivo
+            bw.write( libro.getTitulo() + "\n" );
+            bw.close();
             JOptionPane.showMessageDialog(null, "Libro agregado correctamente.");
         }catch(IOException e){
             e.printStackTrace();
         }finally{
-            if(flwriter != null){
+            if(fw != null){
                 try{
-                    flwriter.close();
+                    fw.close();
                 }catch(IOException e){
                     e.printStackTrace();
                 }
@@ -194,34 +209,47 @@ public class FrmInicioAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        //Boton de salir, regresa a la ventano de login
         new FrmLogin().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderActionPerformed
         // TODO add your handling code here:
+        //Nos pide el nnombre del libro a vender
         String nombre = JOptionPane.showInputDialog("Nombre del libro");
+        //creamos dos archivos, para realizar los cambios
         File arcViejo = new File("D:/libros.txt");
         File nvoArc = new File("D:/tmp.txt");
         try{
-            BufferedReader leer = new BufferedReader(new FileReader(arcViejo));
-            BufferedWriter escribir = new BufferedWriter(new FileWriter(nvoArc));
+            //objeto para leer el archivo
+            BufferedReader br = new BufferedReader(new FileReader(arcViejo));
+            //objeto para escribir en el archivo
+            BufferedWriter bw = new BufferedWriter(new FileWriter(nvoArc));
 
             String linea;
-
-            while((linea = leer.readLine()) != null){
+            
+            //leemos cada linea del archivo
+            //se compara linea con linea
+            while((linea = br.readLine()) != null){
+                //eliminamos los espeacios de la lineas
                 String trmLinea = linea.trim();
+                //revisas si el libro existe
                 if(trmLinea.equals(nombre)){
                     continue;
                 }else{
+                    JOptionPane.showMessageDialog(null, "Libro comprado");
                 }
-                escribir.write(linea + System.getProperty("line.separator"));
+                
+                //escribimos cada linea del archivo, excepto la que ingresamos (nombre del libron) con los saltos de linea
+                bw.write(linea + System.getProperty("line.separator"));
             }
-            escribir.close();
-            leer.close();
+            bw.close();
+            br.close();
+            //borramos el archivo viejo
             arcViejo.delete();
-            File basura = new File("D:/libros.txt");
-            nvoArc.renameTo(basura);
+            //se reombra el archivo temporal en el que escribimos
+            nvoArc.renameTo(arcViejo);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -232,12 +260,13 @@ public class FrmInicioAdm extends javax.swing.JFrame {
         FileReader fr = null;
         try {
             // TODO add your handling code here:
+            //lemos los libros en nuestro archivo
             int nLineas = 0;
             int i = 0;
             String [] libros = null;
             String linea;
-            sc = new Scanner(new File ("D:/libros.txt"));
             File f = new File("D:/libros.txt");
+            sc = new Scanner(f);   
             fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
 
@@ -270,6 +299,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnArticulosActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        //Se abre el formulario para el reguistro
         new FrmRegistro().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -293,6 +323,12 @@ public class FrmInicioAdm extends javax.swing.JFrame {
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void btnChatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChatActionPerformed
+        // TODO add your handling code here:
+        //Formulario para iniciar chat
+        new FrmVendedor().setVisible(true); 
+    }//GEN-LAST:event_btnChatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,6 +369,7 @@ public class FrmInicioAdm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnArticulos;
+    private javax.swing.JButton btnChat;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVender;
@@ -342,5 +379,6 @@ public class FrmInicioAdm extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

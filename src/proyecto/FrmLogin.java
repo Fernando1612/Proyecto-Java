@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,7 +28,6 @@ public class FrmLogin extends javax.swing.JFrame {
     public FrmLogin() {
         initComponents();
         setLocationRelativeTo(null);//Centra el formulario en la pantalla
-        rootPane.setDefaultButton(BtnIngresar);//boton enter
     }
 
     public void setIntentos(int intentos) {
@@ -160,14 +158,22 @@ public class FrmLogin extends javax.swing.JFrame {
             // TODO add your handling code here:
             int nLineas = 0;
             int i = 0;
+            //Arreglo de usuarios
             String [] usuarios = null;
             String linea;
+            //Objeto para escanear el archvio
             sc = new Scanner(new File ("D:/usuarios.txt"));
+            //objeto de tipo File
             File f = new File("D:/usuarios.txt");
+            //objeto flieReader para leer al archivo y pasamos el archivo que queremos leer
             fr = new FileReader(f);
+            //creacion del objeto bufferedReader para leer un linea completa, en lugar de caracter por caracter 
+            //pasamos el archivo a leer
             BufferedReader br = new BufferedReader(fr);
             
             try {
+                //Ciclo para leer todas las lineas de nuestro alrchivo
+                //readLine lee una linea hasta \n
                 while((linea =  br.readLine()) != null){
                     nLineas++;
                 }
@@ -183,16 +189,21 @@ public class FrmLogin extends javax.swing.JFrame {
             
             intentos++;
             
+            //Guardamos las variables ingresadas en el formulario
             usu = TxtUsuario.getText();
             con = TxtContrasena.getText();
             
+            
             Herramientas s = new Herramientas();
+            //pasamos el arrglo de usuarios leidos, el usuario ingresado con su contraseña y los intentos que llevamos
+            //para el metodo de validacion de la clase herraminetas
             s.validarUsuario(usuarios, usu, con, intentos);
+            
             br.close();
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         } catch (IOException ex) {
-            Logger.getLogger(FrmLogin.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         } finally {
             try {
                 sc.close();
@@ -201,8 +212,8 @@ public class FrmLogin extends javax.swing.JFrame {
                 ex.printStackTrace();
             }
         }
-        //Si el usuario entra correctamentse se cierra el formulario de login
         
+        //Si el usuario entra correctamentse se cierra el formulario de login
         if(intentos == 0){
             this.dispose();
         }
@@ -214,6 +225,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void BtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCancelarActionPerformed
         // TODO add your handling code here:
+        //Al apretar el boton cancelar acaba el programa
         this.dispose();
         System.exit(0);
     }//GEN-LAST:event_BtnCancelarActionPerformed

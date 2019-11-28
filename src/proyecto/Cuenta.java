@@ -10,10 +10,12 @@ package proyecto;
  * @author chapa
  */
 public class Cuenta {
+    // Crean atributos de tipo provado
     private String usuario;
     private String contra;
     private String rango;
 
+    // Setters y getters de los atributos, para acceder a ellos y modificarlos
     public String getUsuario() {
         return usuario;
     }
